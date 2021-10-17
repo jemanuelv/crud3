@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Placas New{% endblock %}
+
+{% block content %}
+
+<form method="POST" class="post-form" action="/app/placas_new">  
+
+ {% csrf_token %}  
+ 
+ <div class="container">  
+
+  <div class="form-group row">  
+   <label class="col-sm-1 col-form-label"></label>  
+   <div class="col-sm-4">  
+    <h3>Detalles de placas</h3>  
+   </div>  
+  </div>  
+
+  {% include "app/placas_form.html" %}
+
+ </div>  
+</form>  
+
+{% endblock %}

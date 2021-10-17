@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Presupuesto New{% endblock %}
+
+{% block content %}
+
+<form method="POST" class="post-form" action="/app/presupuesto_new">  
+
+ {% csrf_token %}  
+ 
+ <div class="container">  
+  <br>  
+  
+  <div class="form-group row">  
+   <label class="col-sm-1 col-form-label"></label>  
+   <div class="col-sm-4">  
+    <h3>Detalle de presupuestos</h3>  
+   </div>  
+  </div>  
+    
+  <div class="form-group row">  
+   <label class="col-sm-2 col-form-label">ID de Presupuesto</label>  
+   <div class="col-sm-6">  
+    PRES-DEEI-MAIT-GNG-{{ form.ept }}-{{ form.ewp }}-{{ form.enumber }}-{{form.eversion }}
+   </div> 
+  </div>  
+
+  {% include "app/presupuesto_form.html" %}
+
+
+ </div>  
+</form> 
+
+{% endblock %}

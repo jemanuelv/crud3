@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Presupuestos{% endblock %}
+
+{% load static%}
+
+{% block content %}
+{% with table_name="presupuesto"  %}
+
+<center><h1>Presupuestos</h1></center>
+
+<script src="{% static 'js/list.js' %}" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"> </script>
+
+<input id="table_name" name="table_name" type="hidden" value='{{table_name}}'>
+
+<table id="table_list" class="display" style="width:100%"> 
+    <thead>  
+	  <tr>  
+        <th scope="col">ID</th>  
+        <th scope="col">Fecha</th>  
+        <th scope="col">Autor</th>  
+        <th scope="col">Acción</th> 
+      </tr>  
+    </thead>  
+    <tbody>  
+    {% for row in Table %}  
+    <tr>  
+        <td>{{ row.eid }}</td>  
+        <td>{{ row.efecha|date:'Y-m-d'}}</td>  
+        <td>{{ row.eautor}}</td>  
+        <td>  
+			<a class="btn btn-primary" href="/app/{{table_name}}_edit/{{ row.id }}">
+               <i aria-hidden="true" class="fa fa-pencil-square-o"></i>
+            </a>
+			
+			<a class="btn btn-danger" href="#" onclick="javascript:showdelete('{{ row.id }}');">
+				<i aria-hidden="true" class="fa fa-trash"></i>
+            </a>
+        
+        </td>  
+    </tr>  
+    {% endfor %}  
+    </tbody>  
+</table>  
+
+<center><a type="button" class="btn btn-primary" href="/app/{{table_name}}_new">Nuevo registro</a></center> 
+
+{% include "app/modal_delete.html" %}
+
+{% endwith %}
+{% endblock %}

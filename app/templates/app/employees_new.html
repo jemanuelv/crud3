@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Employees New{% endblock %}
+
+{% block content %}
+
+<form method="POST" class="post-form" action="/app/employees_new">  
+
+ {% csrf_token %}  
+ 
+ <div class="container">  
+
+  <div class="form-group row">  
+   <label class="col-sm-1 col-form-label"></label>  
+   <div class="col-sm-4">  
+    <h3>Detalles de autor</h3>  
+   </div>  
+  </div>  
+   
+  {% include "app/employees_form.html" %}
+
+ </div>  
+</form>  
+
+{% endblock %}

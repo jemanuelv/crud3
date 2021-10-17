@@ -1,0 +1,45 @@
+body { 
+    margin:0;
+    padding:0;
+    font-family:helvetica, sans-serif;
+	height:100vh;
+}
+
+
+#content { 
+    float:right;
+    width:85%;
+	padding: 10px
+
+}
+
+#sidebar { 
+    float:left;
+    width:15%;
+
+    background:#efefef; 
+	height:100%;
+
+}
+
+
+/* Styles for tree on sidebar */
+
+
+
+#menu * { list-style:none;}
+#menu li{ line-height:180%;}
+
+#menu li a{color:#222;  text-decoration:none;}
+#menu li a:before{ content:"\025b8"; color:#ddd; margin-right:4px;}
+
+#menu input[name="list"] {
+	position: absolute; 
+	left: -1000em;}
+	
+#menu label:before{ content:"\025b8"; margin-right:4px;}
+
+#menu input:checked ~ label:before{ content:"\025be";}
+
+#menu .interior{display: none;}
+#menu input:checked ~ ul{display:block;}

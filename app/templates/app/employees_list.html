@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Autores{% endblock %}
+
+{% load static%}
+
+{% block content %}
+{% with table_name="employees"  %}
+
+<center><h1>Autores</h1></center>
+
+<script src="{% static 'js/list.js' %}" type="text/javascript"></script>
+
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"> </script>
+  
+<input id="table_name" name="table_name" type="hidden" value='{{table_name}}'>
+
+<table id="table_list" class="display" style="width:100%"> 
+    <thead>  
+	  <tr>  
+        <th scope="col">Nombre</th>  
+        <th scope="col">Email</th>  
+        <th scope="col">Contacto</th>  
+        <th scope="col">Acción</th>  
+      </tr>  
+    </thead>  
+    <tbody>  
+    {% for row in Table %}  
+    <tr>  
+        <td>{{ row.ename }}</td>  
+        <td>{{ row.eemail }}</td>  
+        <td>{{ row.econtact }}</td>  
+        <td>  
+			<a class="btn btn-primary" href="/app/{{table_name}}_edit/{{ row.id }}">
+               <i aria-hidden="true" class="fa fa-pencil-square-o"></i>
+            </a>
+			
+			<a class="btn btn-danger" href="#" onclick="javascript:showdelete('{{ row.id }}');">
+				<i aria-hidden="true" class="fa fa-trash"></i>
+            </a>
+        
+        </td>  
+    </tr>  
+    {% endfor %}  
+    </tbody>  
+</table>  
+
+ 
+<center><a type="button" class="btn btn-primary" href="/app/{{table_name}}_new">Nuevo registro</a></center> 
+
+{% include "app/modal_delete.html" %}
+
+{% endwith %}
+{% endblock %}
+
