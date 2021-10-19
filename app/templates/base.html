@@ -2,37 +2,35 @@
 <!DOCTYPE html>
 <html>
 
- <head>
+<head>
   <title>{% block title %}{% endblock %}</title>
-  <link href="{% static "css/app.css" %}" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="{% static 'css/app.css' %}" rel="stylesheet">
   
-  <script src="https://code.jquery.com/jquery-3.5.1.js"> </script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{%static 'Bootstrap-4-4.6.0/css/bootstrap.min.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{%static 'DataTables/DataTables-1.11.3/css/jquery.dataTables.min.css' %}"/>  
+  <link rel="stylesheet" type="text/css" href="{%static 'fontawesome-free-5.15.4-web/css/fontawesome.min.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{%static 'fontawesome-free-5.15.4-web/css/solid.min.css' %}"/> 
+  <link rel="stylesheet" type="text/css" href="{%static 'Bootstrap-treeview/css/bootstrap-treeview.css' %}"/> 
 
-
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  <script src="{% static 'jquery-3.6.0/jquery-3.6.0.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'Bootstrap-4-4.6.0/js/bootstrap.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'Bootstrap-treeview/js/bootstrap-treeview.js' %}" type="text/javascript"></script>
 
 </head>
  
- <body>
+<body>
   <div id="sidebar">
     <center><h2>CRUD3</h2></center>
 	
-	{% include "app/sidebar.html" %}
-	
+	{% include "app/sidebar2.html" %}
 	
   </div>
   
   <div id="content">
     {% block content %}
     {% endblock %}
-
   </div>
-  
-
 
 </body>
+
 </html>

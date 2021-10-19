@@ -1,0 +1,62 @@
+<div id="tree"></div>
+
+<script>
+
+
+
+var data = [
+  {
+    text: "Generales",
+    selectable: false,
+	state: {expanded: false},
+
+	nodes: [
+      {
+        text: "Inicio",
+		href: "/app",
+		selectable: false
+      },
+      {
+        text: "Autores",
+		href: "/app/employees_list",
+		selectable: false
+      },
+      {
+        text: "Prespuestos",
+		href: "/app/presupuesto_list",
+		selectable: false
+      }
+	]
+  },
+  
+  {
+    text: "Procesos",
+	selectable: false,
+	state: {expanded: false},
+	nodes: [
+      {
+        text: "Placas",
+		href: "/app/placas_list",
+		selectable: false
+      }
+	]
+  },
+
+  
+ 
+  
+  {
+    text: "Analítica",
+	selectable: false
+  }
+
+];
+  
+  
+
+
+$('#tree').treeview({
+	data: data,
+	enableLinks: true
+	});
+</script>

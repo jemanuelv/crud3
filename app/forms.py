@@ -12,9 +12,9 @@ class PresupuestoFormEdit(forms.ModelForm):
         model = Presupuesto
         fields = ['efecha', 'edescripcion', 'eautor']
 
-        widgets = {
-            'efecha': forms.TextInput(attrs={'readonly':'readonly'}),
+        widgets = {'efecha': forms.TextInput(attrs={'readonly':'readonly'}),
         }
+
 
 class PresupuestoFormNew(PresupuestoFormEdit):
     
@@ -29,6 +29,10 @@ class PresupuestoFormNew(PresupuestoFormEdit):
     eversion = forms.CharField(label='Version', max_length=1, widget=forms.TextInput(attrs={'size': '1'}))
  
 class PlacasForm(forms.ModelForm):  
+    
+
+  
     class Meta:  
         model = Placas
         fields = "__all__" 
+        

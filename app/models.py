@@ -29,6 +29,17 @@ class Presupuesto(models.Model):
         
 class Placas(models.Model):
     epresupuesto = models.ForeignKey(Presupuesto, on_delete=models.CASCADE)
+    
+    tipo_choices= [
+    ('EL-1655', 'EL-1655'),
+    ('EL-1656', 'EL-1656'),
+    ('EL-1666', 'EL-1666'),]
+        
+    
+    
+    etipo = models.CharField(max_length=8, choices=tipo_choices)
+    
+    
     edescripcion = models.TextField(max_length=256)
 
     class Meta:
