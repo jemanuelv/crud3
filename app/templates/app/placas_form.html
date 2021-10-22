@@ -1,24 +1,172 @@
 <div class="form-group row">  
- <label class="col-sm-2 col-form-label">Presupuesto:</label>  
- <div class="col-sm-4">  
-  {{ form.epresupuesto }}  
+ <label class="col-form-label col-sm-3"> Presupuesto:</label> 
+ <div class="col-sm-2"> 
+  {{ form.epresupuesto }} 
  </div>  
 </div> 
 
 <div class="form-group row">  
- <label class="col-sm-2 col-form-label">Tipo:</label>  
- <div class="col-sm-4">  
-  {{ form.etipo }}  
- </div>  
+ <label class="col-form-label col-sm-3">Tipo:</label>  
+ <div class="col-sm-2"> 
+  {{ form.etipo }}
+ </div> 
 </div> 
  
-
 <div class="form-group row">  
- <label class="col-sm-2 col-form-label">Descripción:</label>  
- <div class="col-sm-4">  
-  {{ form.edescripcion }}  
+  <label for="{{ form.edescripcion.name }}">Descripción:</label>  
+  {{ form.edescripcion }}   
+</div>  
+
+
+<div class="form-group row">
+  <label class="col-form-label col-sm-3">Cantidad de placas a fabricar:</label>
+  <div class="col-sm-2">
+     {{ form.qplacas }}
+  </div>
+</div>
+ 
+<div class="form-group row">
+  <label class="col-form-label col-sm-3">Cantidad de componentes:</label>
+  <div class="col-sm-2">
+     {{ form.qcomponentes }}
+  </div>
+</div>
+
+
+<div class="form-group row">
+  <label class="col-form-label col-sm-3">Cantidad de lineas BOM:</label>
+  <div class="col-sm-2">
+     {{ form.qBOM }}
+  </div>
+</div>
+ 
+<div class="form-group row">
+  <legend class="col-form-label col-sm-3">Faz:</legend>
+  
+  <div class="col-sm-2">
+   {% for choice in form.efaz %}
+    <div class="form-check">
+     {{ choice.tag }}
+      <label class="form-check-label" for="{{ choice.id }}">
+       {{ choice.choice_label }}
+      </label>
+    </div>
+   {% endfor %}   
+  </div>
+</div>
+ 
+
+<div class="form-group row">
+  <label class="col-form-label col-sm-3">Pads con soldadura manual:</label>
+  <div class="input-group col-sm-2">
+     {{ form.qpads }}
+	 <div class="input-group-append">
+       <span class="input-group-text" id="basic-addon2">%</span>
+     </div>
+  </div>
+</div> 
+
+<div class="form-group row">
+  <label class="col-form-label col-sm-3">Armado automatico:</label>
+  <div class="input-group col-sm-2">   
+	 {{ form.qaut }}
+	 <div class="input-group-append">
+       <span class="input-group-text" id="basic-addon2">%</span>
+     </div>
+  </div>
+</div> 
+
+<div class="form-group row">
+  <label class="col-form-label col-sm-3">Cantidad de componentes Fine Pitch:</label>
+  <div class="col-sm-2">
+     {{ form.qfine_pitch }}
+  </div>
+</div> 
+    
+ 
+  
+<div class="form-group row">
+  <label class="col-form-label col-sm-3">Cantidad de componentes BGA/CCGA:</label>
+  <div class="col-sm-2">
+     {{ form.qBGA_CCGA }}
+  </div>
+</div> 
+
+
+<div class="form-group row">
+  <label class="col-sm-3">Se necesita aplicación de polímeros</label>
+  <div class="col-sm-2">
+   <div class="form-check">
+     {{ form.epolimeros }}
+   </div> 
+  </div>
+</div>
+  
+<div class="form-group row">
+  <label class="col-sm-3">PEM</label>
+  <div class="col-sm-2">
+   <div class="form-check">
+     {{ form.ePEM }}
+   </div>
+  </div>
+</div>
+
+       
+<div class="form-group row">  
+ <label class="col-form-label col-sm-3 ">Formato de compras:</label>  
+ <div class="col-sm-2">  
+    {{ form.ecompras }}  
  </div>  
 </div>  
+
+    
+<div class="form-group row">  
+ <label class="col-form-label col-sm-3">Nivel de calidad:</label>  
+ <div class="col-sm-2">  
+  {{ form.ecalidad }}  
+ </div>  
+</div>      
+    
+<div class="form-group row">  
+ <label class="col-sm-3">Diseño de placa maduro</label>  
+  <div class="col-sm-2">
+   <div class="form-check">  
+  {{ form.emaduro }}  
+  </div>
+ </div>  
+</div>     
+     
+<div class="form-group row">  
+ <label class="col-sm-3">Producción como lote</label>  
+  <div class="col-sm-2">
+   <div class="form-check">  
+  {{ form.elote }}  
+  </div>
+ </div>  
+</div>     
+    
+<div class="form-group row">  
+ <label class="col-form-label col-sm-3 ">PE:</label>  
+ <div class="col-sm-2">  
+  {{ form.PE }}  
+ </div> 
+</div> 
+ 
+<div class="form-group row">  
+ <label class="col-form-label col-sm-3 ">QA:</label>  
+ <div class="col-sm-2"> 
+  {{ form.QA}}  
+ </div>
+</div>
+ 
+<div class="form-group row">  
+ <label class="col-form-label col-sm-3 ">QC:</label>  
+ <div class="col-sm-2">  
+  {{ form.QC }}  
+ </div>  
+</div>  
+	
+
 
 
 <div class="form-group row">  
@@ -26,7 +174,6 @@
  <div class="col-sm-4">  
   <button type="submit" class="btn btn-primary">Guardar</button>  
  </div>  
-  
  <div class="col-sm-4">  
   <a  class="btn btn-danger" href="/app/placas_list">Cancelar</a>  
  </div> 

@@ -8,15 +8,16 @@
 
 {% with table_name="placas"  %}
 
-<center><h1>Armado de placas</h1></center>
+<center><h1>Procesos de armado de placas</h1></center>
 
 
 <input id="table_name" name="table_name" type="hidden" value='{{table_name}}'>
 
 <table id="table_list" class="display" style="width:100%"> 
     <thead>  
-	  <tr>  
-        <th scope="col">Presupuesto</th>  
+	  <tr>
+	    <th scope="col">ID</th>
+        <th scope="col">Presupuesto asociado</th>  
 		<th scope="col">Tipo</th> 
         <th scope="col">Descripción</th>  
         <th scope="col">Acción</th>  
@@ -25,7 +26,8 @@
     <tbody>  
     {% for row in Table %}  
     <tr>  
-        <td>{{ row.epresupuesto }}</td> 
+        <td>{{ row.id }}</td> 
+		<td>{{ row.epresupuesto }}</td> 
 		<td>{{ row.etipo }}</td>
         <td>{{ row.edescripcion }}</td>  
 
@@ -38,6 +40,9 @@
 				<i aria-hidden="true" class="fa fa-trash"></i>
             </a>
         
+			<a class="btn btn-success" href="/app/{{table_name}}_copy/{{ row.id }}">
+               <i aria-hidden="true" class="fa fa-copy"></i>
+            </a>
         </td>  
     </tr>  
     {% endfor %}  

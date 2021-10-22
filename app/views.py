@@ -56,7 +56,7 @@ def presupuesto_new(request):
                 
        
                 PresupuestoObject=form.save()  
-                eid='PRES-DEEI-MAIT-GNG-'+form.data['ept']+'-'+form.data['ewp']+'-'+form.data['enumber']+'-'+form.data['eversion']
+                eid='PRES-DEEI-MAIT-'+form.data['egerencia']+'-'+form.data['ept']+'-'+form.data['ewp']+'-'+form.data['enumber']+'-'+form.data['eversion']
                 
                 PresupuestoObject.eid=eid
                 PresupuestoObject.save()
@@ -142,6 +142,17 @@ def placas_edit(request, id):
         form = PlacasForm(instance = row) 
     
     return render(request,'app/placas_edit.html',{'form':form, 'row':row}) 
+
+# ---- Copy ----
+
+def placas_copy(request, id):  
+    
+    row = Placas.objects.get(id=id)
+    row.pk = None
+    row.save()
+    
+    return redirect('/app/placas_list')  
+
 
 
 # ---- Destroy ----

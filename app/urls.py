@@ -17,6 +17,7 @@ urlpatterns = [
     path('placas_new', views.placas_new, name='EL-1655_new'),
     path('placas_delete/<int:id>', views.placas_destroy),
     path('placas_edit/<int:id>', views.placas_edit),
+    path('placas_copy/<int:id>', views.placas_copy),
    
 ]
  
